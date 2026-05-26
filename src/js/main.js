@@ -23,7 +23,7 @@ function recipeTemplate(recipe) {
   return `
   
     <a
-      href="/recipe/index.html?id=${recipe.idMeal}"
+      href="/src/recipe/index.html?id=${recipe.idMeal}"
       class="recipe-card"
     >
 
