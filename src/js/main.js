@@ -18,6 +18,11 @@ const recipeList =
     '.recipe-list'
   );
 
+  const categoryFilter =
+  document.querySelector(
+    '#categoryFilter'
+  );
+
 function recipeTemplate(recipe) {
 
   return `
@@ -50,7 +55,7 @@ function recipeTemplate(recipe) {
 
 function renderRecipes(recipes) {
 
-  if (!recipes) {
+  if (!recipes || recipes.length === 0) {
 
     recipeList.innerHTML =
       '<p>No recipes found.</p>';
@@ -76,7 +81,24 @@ searchBtn.addEventListener(
         query
       );
 
-    renderRecipes(recipes);
+    let filteredRecipes =
+  recipes;
+
+if (
+  categoryFilter.value !== ''
+) {
+
+  filteredRecipes =
+    recipes.filter(
+      recipe =>
+        recipe.strCategory ===
+        categoryFilter.value
+    );
+}
+
+renderRecipes(
+  filteredRecipes
+);
   }
 );
 
@@ -84,6 +106,8 @@ const randomBtn =
   document.querySelector(
     '#randomBtn'
   );
+
+  
 
 randomBtn.addEventListener(
   'click',
