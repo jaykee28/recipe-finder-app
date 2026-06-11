@@ -79,3 +79,21 @@ searchBtn.addEventListener(
     renderRecipes(recipes);
   }
 );
+
+const randomBtn =
+  document.querySelector(
+    '#randomBtn'
+  );
+
+randomBtn.addEventListener(
+  'click',
+  async () => {
+
+    const recipe =
+      await api.getRandomRecipe();
+
+    window.location.href =
+      window.location.href =
+  `/src/recipe/index.html?id=${recipe.idMeal}`;
+  }
+);

@@ -95,13 +95,30 @@ function renderRecipe(recipe) {
             ${generateIngredients(recipe)}
         </ul>
 
+        
         <h3>
           Instructions
         </h3>
 
-        <p>
-          ${recipe.strInstructions}
-        </p>
+        <div class="instructions">
+  ${recipe.strInstructions
+    .split('.')
+    .filter(step => step.trim() !== '')
+    .map(step => `<p>${step.trim()}.</p>`)
+    .join('')}
+</div>
+
+      ${recipe.strYoutube ? `
+  <h3>Video Tutorial</h3>
+
+  <a
+    href="${recipe.strYoutube}"
+    target="_blank"
+    class="video-btn"
+  >
+    ▶ Watch on YouTube
+  </a>
+` : ''}
 
       </div>
 

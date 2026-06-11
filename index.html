@@ -25,23 +25,18 @@
 
 <body>
 
-  <header class="main-header">
-
-    <h1>
+ <header class="main-header">
+  <nav>
+    <div class="logo">
       🍴 Recipe Finder
-    </h1>
+    </div>
 
-    <nav>
-      <a href="/">
-        Home
-      </a>
-
-      <a href="/src/favorites/">
-        Favorites
-      </a>
-    </nav>
-
-  </header>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/src/favorites/">Favorites</a></li>
+    </ul>
+  </nav>
+</header>
 
   <main>
 
@@ -70,11 +65,19 @@
           Search
         </button>
 
+
+        <button id="randomBtn">
+  🎲 Random Recipe
+</button>
       </div>
 
     </section>
 
     <section class="recipes">
+
+<h2 class="results-title">
+  Search Results
+</h2>
 
       <div
         class="recipe-list"
@@ -88,6 +91,14 @@
     type="module"
     src="/src/js/main.js"
   ></script>
+
+
+<footer class="main-footer">
+  <p>
+    © 2026 Recipe Finder App |
+    Built by Jacqueline Mufetu
+  </p>
+</footer>
 
 </body>
 </html>
