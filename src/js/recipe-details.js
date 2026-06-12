@@ -23,7 +23,13 @@ async function loadRecipe() {
       recipeId
     );
 
-  renderRecipe(recipe);
+  const drink =
+    await api.getRandomDrink();
+
+  renderRecipe(
+    recipe,
+    drink
+  );
 }
 
 function generateIngredients(recipe) {
@@ -54,7 +60,9 @@ function generateIngredients(recipe) {
   return ingredients;
 }
 
-function renderRecipe(recipe) {
+
+
+function renderRecipe(recipe, drink) {
 
   detailsContainer.innerHTML = `
 
@@ -81,6 +89,7 @@ function renderRecipe(recipe) {
           ${recipe.strArea}
         </p>
 
+
         <button
           class="favorite-btn"
         >
@@ -95,10 +104,29 @@ function renderRecipe(recipe) {
             ${generateIngredients(recipe)}
         </ul>
 
-        
+         <div class="drink-pairing">
+
+  <h3>
+    🍹 Recommended Cocktail
+  </h3>
+
+  <img
+    src="${drink.strDrinkThumb}"
+    alt="${drink.strDrink}"
+    class="drink-image"
+  />
+
+  <p>
+    ${drink.strDrink}
+  </p>
+
+</div>
         <h3>
           Instructions
         </h3>
+
+       
+
 
         <div class="instructions">
   ${recipe.strInstructions
